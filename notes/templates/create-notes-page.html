@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    
+    {%if user.is_authenticated %}
     <div class="mb-3" >
         <div class="container" >
             <div class="content-section">
@@ -23,4 +23,5 @@
         var name = "{{user.id}}";
         document.getElementById("elder").value = name;
     </script>
+    {% endif %}
 {% endblock content %}

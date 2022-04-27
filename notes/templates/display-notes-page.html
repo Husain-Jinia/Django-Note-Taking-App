@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+
+    {%if user.is_authenticated %}
     <div>
         <div class="container m-3">
             <div class="d-flex flex-wrap flex-direction-column">
                 {% for note in notes %}
-                    <div class="p-3 text-center" style="background-color:{{note.color}}; border-radius:9px;">
-                        <div>
+                    <div class=" text-center py-2" style="background-color:{{note.color}}; border-radius:9px; color:white ">
+                        <div class="px-2">
                             <h3>
                                 {{note.title}}
                             </h3>
@@ -16,7 +18,7 @@
                         </p>
                         <div class="d-flex flex-direction-row justify-content-around">
                             
-                        <p class="mx-2">{{note.tag}}</p>
+                        <p class="mx-2"><a style="text-decoration:none; color:white" href="">#{{note.tag}}</a></p>
                             
                         <p class="mx-2">{{note.created_on}}</p>
                         </div>
@@ -25,5 +27,5 @@
             </div>
         </div>
     </div>
-
+    {% endif %}
 {% endblock content %}
