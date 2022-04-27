@@ -2,5 +2,6 @@ from django.contrib import admin
 from notes.models import *
 
 # Register your models here.
-admin.site.register(Notes)
+admin.site.register(Note)
 admin.site.register(Tags)
+admin.site.register(Color)

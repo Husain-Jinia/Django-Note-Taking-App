@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <div class="container m-3">
+            <div class="d-flex flex-wrap flex-direction-column">
+                {% for note in notes %}
+                    <div class="p-3 text-center" style="background-color:{{note.color}}; border-radius:9px;">
+                        <div>
+                            <h3>
+                                {{note.title}}
+                            </h3>
+                        </div>
+                        
+                        <p>
+                            {{note.body|safe}}
+                        </p>
+                        <div class="d-flex flex-direction-row justify-content-around">
+                            
+                        <p class="mx-2">{{note.tag}}</p>
+                            
+                        <p class="mx-2">{{note.created_on}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

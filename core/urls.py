@@ -27,7 +27,9 @@ urlpatterns = [
     path('login/',auth_views.LoginView.as_view(template_name = 'users/login.html'), name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name = 'users/logout.html'), name='logout'),
     # notes url
-    path('home',notes_views.CreateNotes.as_view(), name='create-note')
+    path('home/',notes_views.CreateNotes.as_view(), name='create-note'),
+    path('notes/',notes_views.displayView, name='display-note')
+
 
     
 ]
