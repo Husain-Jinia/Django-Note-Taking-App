@@ -28,8 +28,7 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name = 'users/logout.html'), name='logout'),
     # notes url
     path('home/',notes_views.CreateNotes.as_view(), name='create-note'),
-    path('',notes_views.displayView, name='display-note')
+    path('',notes_views.displayView, name='display-note'),
+    path('pinnote/<int:id>',notes_views.pin, name='pin-note')  
 
-
-    
 ]

@@ -25,6 +25,7 @@ class Note(models.Model):
     color = models.ForeignKey(Color, on_delete=models.CASCADE)
     created_on = models.DateField()
     author = models.ForeignKey(User,  on_delete=models.CASCADE)
+    pin = models.BooleanField('pinned', default=False)
 
     def __str__(self):
         return self.title
