@@ -2,26 +2,44 @@
 {% block content %}
 
     {%if user.is_authenticated %}
-    <div>
-        <div class="container m-3">
-            <div class="d-flex flex-wrap flex-direction-column">
+    <div class="container my-3">
+        <div class="mx-auto">
+            <div class="d-flex justify-content-between">
+                <h2 style="color: white;">Your Notes</h2>
+                <button class="btn btn-outline-light px-3 mx-3" href="">CREATE NOTE</button>
+            </div>
+            
+            <hr style="color:white;">
+            <div class="d-flex flex-wrap">
                 {% for note in notes %}
-                    <div class=" text-center py-2" style="background-color:{{note.color}}; border-radius:9px; color:white ">
-                        <div class="px-2">
+                    {% if note.color != "white" %}
+                        <div class=" text-center py-2 px-2 mx-1 my-1" style="background-color:{{note.color}}; border-radius:9px; color:white; flex:1 1 17em">
+                    {% else %}
+                        <div class=" text-center py-2 px-2 mx-1 my-1" style="background-color:{{note.color}}; border-radius:9px; color:black; flex:1 1 17em">
+
+                    {% endif %}
+
+                        <div class="px-2 py-1" style="border-radius:9px;background-color: rgba(0, 0, 0, 0.3);">
                             <h3>
                                 {{note.title}}
                             </h3>
                         </div>
+                        <hr>
+                        <div class="d-flex flex-direction-row justify-content-around" style="border-radius:9px;background-color: rgba(0, 0, 0, 0.2); ">
                         
-                        <p>
-                            {{note.body|safe}}
-                        </p>
-                        <div class="d-flex flex-direction-row justify-content-around">
-                            
-                        <p class="mx-2"><a style="text-decoration:none; color:white" href="">#{{note.tag}}</a></p>
-                            
-                        <p class="mx-2">{{note.created_on}}</p>
+                            <p class="mx-2" style="padding-top:5px"><a style="text-decoration:none; color:#fff" href="#">#{{note.tag}}</a></p>
+                                
+                            <p class="mx-2" style="padding-top:5px">{{note.created_on}}</p>
                         </div>
+                        <div class="px-1" style="border-radius:9px;background-color: rgba(0, 0, 0, 0.17);">
+                            <p>
+                                {{note.body|safe}}
+                                <hr>
+                            </p>
+                        </div>
+                        
+                       
+
                     </div>
                 {% endfor %}
             </div>
