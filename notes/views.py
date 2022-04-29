@@ -19,5 +19,10 @@ class CreateNotes(CreateView):
     template_name = 'create-notes-page.html'
     success_url = reverse_lazy(displayView)
 
+class UpdateArticle(UpdateView):
+    model = Note
+    form_class = NotesUpdateForms
+    template_name = 'updateArticle.html'
+
 
     
