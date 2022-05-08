@@ -20,10 +20,16 @@ class CreateNotes(CreateView):
     template_name = 'create-notes-page.html'
     success_url = reverse_lazy(displayView)
 
-class UpdateArticle(UpdateView):
+class UpdateNote(UpdateView):
     model = Note
     form_class = NotesUpdateForms
-    template_name = 'display-notes-page.html'
+    template_name = 'update-notes-page.html'
+    success_url = reverse_lazy(displayView)
+
+class DeleteNote(DeleteView):
+    model = Note
+    template_name = 'delete-note-page.html'
+    success_url = reverse_lazy(displayView)
 
 def pin(request,id):
     notes = Note.objects.get(id=id)
